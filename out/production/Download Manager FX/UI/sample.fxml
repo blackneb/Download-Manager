@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+    </rowConstraints>
+    <children>
+        <BorderPane prefHeight="640.0" prefWidth="900.0">
+         <center>
+                <TabPane fx:id="trackerdownloader" prefHeight="600.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+                    <tabs>
+                        <Tab text="Tracker">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <TableView fx:id="tracktable" prefHeight="500.0" prefWidth="900.0">
+                                            <columns>
+                                                <TableColumn fx:id="Trackerhostname" prefWidth="300.0" text="Host Name" />
+                                                <TableColumn fx:id="TrackerIP" prefWidth="300.0" text="IP Address" />
+                                                <TableColumn fx:id="Trackertype" prefWidth="300.0" text="Type" />
+                                            </columns>
+                                        </TableView>
+                              <Button fx:id="starttracker" layoutX="14.0" layoutY="510.0" mnemonicParsing="false" prefWidth="90.0" text="Start Tracker" />
+                              <Button fx:id="stoptracker" layoutX="110.0" layoutY="510.0" mnemonicParsing="false" prefWidth="90.0" text="Stop Tracker" />
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                  <Tab text="Server">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="serverstable" layoutY="250.0" prefHeight="250.0" prefWidth="900.0">
+                                 <columns>
+                                    <TableColumn fx:id="serverhostname" prefWidth="450.0" text="Host Name" />
+                                    <TableColumn fx:id="serverip" prefWidth="450.0" text="IP Address" />
+                                 </columns>
+                              </TableView>
+                              <Button fx:id="startserver" layoutX="14.0" layoutY="510.0" mnemonicParsing="false" prefWidth="80.0" text="Start Server" />
+                              <Button fx:id="stopserver" layoutX="110.0" layoutY="510.0" mnemonicParsing="false" prefWidth="80.0" text="Stop Server" />
+                              <TableView id="downloadertable" fx:id="serverdownloadertable" layoutY="10.0" prefHeight="180.0" prefWidth="900.0">
+                                 <columns>
+                                    <TableColumn id="downloadname" fx:id="serverdownloadername" prefWidth="150.0" text="Name" />
+                                    <TableColumn id="downloadprogress" fx:id="serverdownloaderprogress" prefWidth="150.0" text="Progress" />
+                                    <TableColumn id="downloadstatus" fx:id="serverdownloaderstatus" prefWidth="150.0" text="status" />
+                                    <TableColumn id="downloadsize" fx:id="serverdownloadersize" prefWidth="150.0" text="Size" />
+                                    <TableColumn id="downloadadded" fx:id="serverdownloaderadded" prefWidth="150.0" text="Added" />
+                                    <TableColumn id="downloadadded" fx:id="serverdownloaderip" prefWidth="150.0" text="IP Address" />
+                                 </columns>
+                              </TableView>
+                              <Button fx:id="sddelete" layoutX="54.0" layoutY="200.0" mnemonicParsing="false" prefWidth="80.0" text="Delete" />
+                              <Button fx:id="sdstop" layoutX="156.0" layoutY="200.0" mnemonicParsing="false" prefWidth="80.0" text="Stop" />
+                              <Button fx:id="sdpause" layoutX="262.0" layoutY="200.0" mnemonicParsing="false" prefWidth="80.0" text="Pause" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="downloadTab" text="Download manager">
+                     <content>
+                        <AnchorPane fx:id="downloaderpane" minHeight="0.0" minWidth="0.0" onKeyPressed="#clipboard_paste" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView id="downloadertable" fx:id="downloadertable" layoutY="70.0" prefHeight="180.0" prefWidth="900.0">
+                                <columns>
+                                  <TableColumn id="downloadname" fx:id="downloadname" prefWidth="180.0" text="Name" />
+                                  <TableColumn id="downloadprogress" fx:id="downloadprogress" prefWidth="180.0" text="Progress" />
+                                    <TableColumn id="downloadstatus" fx:id="downloadstatus" prefWidth="180.0" text="status" />
+                                    <TableColumn id="downloadsize" fx:id="downloadsize" prefWidth="180.0" text="Size" />
+                                    <TableColumn id="downloadadded" fx:id="downloadadded" prefWidth="180.0" text="Added" />
+                                </columns>
+                              </TableView>
+                              <TableView id="clienttable" fx:id="clienttable" layoutY="300.0" prefHeight="200.0" prefWidth="900.0">
+                                 <columns>
+                                    <TableColumn id="no" fx:id="no" prefWidth="30.0" text="No" />
+                                    <TableColumn id="clientname" fx:id="clientname" prefWidth="300.0" text="Server Name" />
+                                    <TableColumn id="clientip" fx:id="clientip" prefWidth="300.0" text="Server IP" />
+                                    <TableColumn id="label" fx:id="label" prefWidth="300.0" text="Label" />
+                                 </columns>
+                              </TableView>
+                              <TextField id="url" fx:id="URL" layoutX="36.0" layoutY="14.0" prefWidth="400.0" promptText="Enter URL" />
+                              <Button id="urldownload" fx:id="URLdownload" layoutX="466.0" layoutY="14.0" mnemonicParsing="false" prefWidth="100.0" text="Download" />
+                              <Button id="adddownload" fx:id="adddownload" layoutX="61.0" layoutY="261.0" mnemonicParsing="false" prefWidth="80.0" text="Add" />
+                              <Button id="deletedownload" fx:id="deletedownload" layoutX="184.0" layoutY="261.0" mnemonicParsing="false" prefWidth="80.0" text="Delete" />
+                              <Button id="canceldownload" fx:id="canceldownload" layoutX="307.0" layoutY="261.0" mnemonicParsing="false" prefWidth="80.0" text="Stop" />
+                              <Button id="addserver" fx:id="addserver" layoutX="61.0" layoutY="510.0" mnemonicParsing="false" prefWidth="80.0" text="Add" />
+                              <Button id="deleteserver" fx:id="deleteserver" layoutX="184.0" layoutY="510.0" mnemonicParsing="false" prefWidth="80.0" text="Delete" />
+                              <TextField id="searchbox" fx:id="searchbox" layoutX="603.0" layoutY="14.0" promptText="Enter text" />
+                              <Button fx:id="searchbutton" layoutX="787.0" layoutY="14.0" mnemonicParsing="false" prefWidth="80.0" text="Search" />
+                              <Label layoutX="40.0" layoutY="46.0" prefHeight="20.0" prefWidth="200.0" text="Invalid URL" textFill="RED" />
+                              <Button fx:id="pausedownload" layoutX="436.0" layoutY="261.0" mnemonicParsing="false" prefWidth="80.0" text="Pause" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                    </tabs>
+                </TabPane>
+         </center>
+         <top>
+            <HBox prefHeight="40.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="portconfiguration" mnemonicParsing="false" prefWidth="80.0" text="Config Port">
+                     <HBox.margin>
+                        <Insets left="20.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </top>
+        </BorderPane>
+    </children>
+</GridPane>
